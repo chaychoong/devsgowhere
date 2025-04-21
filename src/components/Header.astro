@@ -53,6 +53,7 @@ import { SITE_TITLE } from "../consts";
     align-items: center;
     justify-content: space-between;
     position: relative;
+    padding: 0.5em 0;
   }
   nav a {
     padding: 1em 0.5em;
@@ -73,11 +74,8 @@ import { SITE_TITLE } from "../consts";
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5em;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    padding: 1em 0.5em;
+    position: relative;
     z-index: 100;
   }
   .hamburger-icon {
@@ -92,7 +90,9 @@ import { SITE_TITLE } from "../consts";
     width: 100%;
     background-color: rgb(var(--black));
     border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
   .hamburger-menu.active .bar:nth-child(1) {
     transform: translateY(10px) rotate(45deg);
@@ -109,6 +109,14 @@ import { SITE_TITLE } from "../consts";
     }
     .hamburger-menu {
       display: block;
+      margin-left: auto;
+    }
+    nav {
+      flex-wrap: wrap;
+      padding: 0;
+    }
+    h2 {
+      padding: 1em 0.5em;
     }
     .internal-links {
       display: none;
@@ -121,27 +129,27 @@ import { SITE_TITLE } from "../consts";
       padding: 1em;
       box-shadow: 0 4px 8px rgba(var(--black), 10%);
       z-index: 99;
+      order: 3;
     }
     .internal-links.active {
       display: flex;
     }
     .internal-links a {
       padding: 0.5em;
-      width: 100%;
       text-align: center;
     }
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const internalLinks = document.querySelector('.internal-links');
-    
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const internalLinks = document.querySelector(".internal-links");
+
     if (hamburgerMenu && internalLinks) {
-      hamburgerMenu.addEventListener('click', () => {
-        hamburgerMenu.classList.toggle('active');
-        internalLinks.classList.toggle('active');
+      hamburgerMenu.addEventListener("click", () => {
+        hamburgerMenu.classList.toggle("active");
+        internalLinks.classList.toggle("active");
       });
     }
   });
